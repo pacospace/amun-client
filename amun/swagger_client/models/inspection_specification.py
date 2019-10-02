@@ -38,7 +38,9 @@ class InspectionSpecification(object):
     swagger_types = {
         'base': 'str',
         'packages': 'list[str]',
+        'python_packages': 'list[str]',
         'python': 'InspectionSpecificationPython',
+        'identifier': 'str',
         'build': 'InspectionSpecificationBuild',
         'run': 'InspectionSpecificationRun',
         'files': 'list[InspectionSpecificationFiles]',
@@ -48,19 +50,23 @@ class InspectionSpecification(object):
     attribute_map = {
         'base': 'base',
         'packages': 'packages',
+        'python_packages': 'python_packages',
         'python': 'python',
+        'identifier': 'identifier',
         'build': 'build',
         'run': 'run',
         'files': 'files',
         'script': 'script'
     }
 
-    def __init__(self, base=None, packages=None, python=None, build=None, run=None, files=None, script=None):  # noqa: E501
+    def __init__(self, base=None, packages=None, python_packages=None, python=None, identifier=None, build=None, run=None, files=None, script=None):  # noqa: E501
         """InspectionSpecification - a model defined in Swagger"""  # noqa: E501
 
         self._base = None
         self._packages = None
+        self._python_packages = None
         self._python = None
+        self._identifier = None
         self._build = None
         self._run = None
         self._files = None
@@ -70,8 +76,12 @@ class InspectionSpecification(object):
         self.base = base
         if packages is not None:
             self.packages = packages
+        if python_packages is not None:
+            self.python_packages = python_packages
         if python is not None:
             self.python = python
+        if identifier is not None:
+            self.identifier = identifier
         if build is not None:
             self.build = build
         if run is not None:
@@ -132,6 +142,29 @@ class InspectionSpecification(object):
         self._packages = packages
 
     @property
+    def python_packages(self):
+        """Gets the python_packages of this InspectionSpecification.  # noqa: E501
+
+        A list of python packages that should be installed into the runtime environment.  # noqa: E501
+
+        :return: The python_packages of this InspectionSpecification.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._python_packages
+
+    @python_packages.setter
+    def python_packages(self, python_packages):
+        """Sets the python_packages of this InspectionSpecification.
+
+        A list of python packages that should be installed into the runtime environment.  # noqa: E501
+
+        :param python_packages: The python_packages of this InspectionSpecification.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._python_packages = python_packages
+
+    @property
     def python(self):
         """Gets the python of this InspectionSpecification.  # noqa: E501
 
@@ -151,6 +184,29 @@ class InspectionSpecification(object):
         """
 
         self._python = python
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this InspectionSpecification.  # noqa: E501
+
+        A user-created string which will be inserted into the inspection id to distinguish different inspection runs.  # noqa: E501
+
+        :return: The identifier of this InspectionSpecification.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this InspectionSpecification.
+
+        A user-created string which will be inserted into the inspection id to distinguish different inspection runs.  # noqa: E501
+
+        :param identifier: The identifier of this InspectionSpecification.  # noqa: E501
+        :type: str
+        """
+
+        self._identifier = identifier
 
     @property
     def build(self):
